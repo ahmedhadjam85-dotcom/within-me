@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#05060f">
+<title>Within Me</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="ctrl-key">
+
+<div id="app">
+  <canvas id="game" width="320" height="180"></canvas>
+
+  <button id="pbtn" class="hidden" aria-label="Pause">❚❚</button>
+
+  <div id="dialogue" class="hidden">
+    <canvas id="portrait" width="48" height="48"></canvas>
+    <div class="dbody"><b id="dname"></b><p id="dtext"></p></div>
+    <span id="dhint">TAP ▶</span>
+  </div>
+
+  <div id="title">
+    <h1>WITHIN ME</h1>
+    <p id="tsub">A journey into the mind...<br>The greatest battle is the one within.</p>
+    <button id="start" class="big">START</button>
+    <button id="cont" class="big ghost hidden">CONTINUE</button>
+    <div id="credit">Ahmed Hadjam ®</div>
+  </div>
+
+  <div id="controls" class="hidden">
+    <h2>CHOOSE YOUR CONTROLS</h2>
+    <div class="cards">
+      <button class="card" data-c="touch"><i>📱</i><b>TOUCH</b><small>Phone / Tablet<br>On-screen buttons</small></button>
+      <button class="card" data-c="key"><i>⌨️</i><b>KEYBOARD</b><small>A D / ← → move · W S climb<br>Space jump · J attack · K dash</small></button>
+      <button class="card" data-c="pad"><i>🎮</i><b>GAMEPAD</b><small>Stick move / climb · A jump<br>X attack · B dash</small></button>
+    </div>
+    <p id="cnote">You can change this any time from the pause menu.</p>
+  </div>
+
+  <div id="pause" class="hidden">
+    <h2>PAUSED</h2>
+    <button id="resume" class="big">RESUME</button>
+    <button id="chg" class="big ghost">CONTROLS</button>
+    <button id="quit" class="big ghost">QUIT</button>
+  </div>
+</div>
+
+<div id="touch">
+  <div class="pad">
+    <button data-k="left">◀</button>
+    <button data-k="right">▶</button>
+    <div class="vert">
+      <button data-k="up">▲</button>
+      <button data-k="down">▼</button>
+    </div>
+  </div>
+  <div class="act">
+    <button data-k="dash">⚡</button>
+    <button data-k="attack">⚔</button>
+    <button data-k="jump">JUMP</button>
+  </div>
+</div>
+
+<script src="music.js"></script>
+<script src="characters.js"></script>
+<script src="dialogue.js"></script>
+<script src="enemies.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
