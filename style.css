@@ -1,0 +1,75 @@
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+html,body{height:100%;background:#05060f;color:#e8ecff;font-family:'Courier New',monospace;overflow:hidden;touch-action:none}
+body{display:flex;justify-content:center;align-items:flex-start}
+.hidden{display:none!important}
+
+#app{position:relative;width:min(100vw,calc(100vh*16/9))}
+#game{width:100%;display:block;image-rendering:pixelated;background:#000;box-shadow:0 0 70px #4a3aa855}
+#app::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:40;
+  background:radial-gradient(ellipse at center,transparent 52%,#000c 100%),
+             repeating-linear-gradient(0deg,#0000 0 2px,#00000010 2px 3px)}
+
+/* ---------- buttons ---------- */
+.big{padding:10px 34px;font:inherit;font-size:clamp(12px,2.6vw,20px);letter-spacing:.3em;color:#fff;
+  background:#2a2a7a66;border:2px solid #8a8aff;box-shadow:0 0 18px #6a6aff88;cursor:pointer}
+.big:active{background:#5a5aff88}
+.big.ghost{background:transparent;border-color:#5a5a9a;box-shadow:none;color:#b8bfe8}
+
+/* ---------- dialogue ---------- */
+#dialogue{position:absolute;left:3%;right:3%;bottom:5%;display:flex;gap:12px;align-items:center;padding:10px 14px;
+  background:linear-gradient(#0b0f2add,#05071aef);border:2px solid #6a7ad8;
+  box-shadow:0 0 0 2px #05071a,0 0 24px #6a7ad866;z-index:30;cursor:pointer;animation:rise .25s ease-out}
+#portrait{width:72px;height:72px;image-rendering:pixelated;background:#0005;border:1px solid #6a7ad866;flex:none}
+.dbody{flex:1;min-height:52px}
+#dname{display:block;font-size:clamp(10px,2vw,16px);letter-spacing:.18em;color:#c8d0ff;margin-bottom:5px}
+#dname.n-alexander{color:#9ec8ff}
+#dtext{font-size:clamp(11px,2.3vw,19px);line-height:1.45;color:#f2f4ff;font-style:italic;padding-right:46px}
+#dhint{position:absolute;right:12px;bottom:5px;font-size:10px;color:#8e9aff;animation:blink 1s steps(2) infinite}
+
+/* ---------- title / controls / pause ---------- */
+#title,#controls,#pause{position:absolute;inset:0;z-index:35;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center}
+#title{background:radial-gradient(ellipse at 50% 100%,#6a2a7a77,transparent 62%),linear-gradient(#05061a99,#150a30cc)}
+#title h1{font-size:clamp(28px,9vw,78px);letter-spacing:.22em;color:#fff;
+  text-shadow:0 0 12px #a07aff,0 0 34px #6a3aff,3px 0 #ff4a9a88,-3px 0 #4acfff88;animation:glitch 3s infinite}
+#title p{font-size:clamp(11px,2.4vw,18px);line-height:1.6;color:#b8bfe8}
+#credit{position:absolute;bottom:8px;left:0;right:0;font-size:clamp(9px,1.6vw,12px);letter-spacing:.25em;color:#8e96c8;opacity:.75}
+
+#controls,#pause{background:#04051acc;backdrop-filter:blur(3px)}
+#controls h2,#pause h2{font-size:clamp(14px,3.4vw,26px);letter-spacing:.25em;color:#d8dcff;text-shadow:0 0 14px #6a6aff}
+.cards{display:flex;gap:clamp(8px,2vw,18px);justify-content:center;padding:0 10px}
+.card{display:flex;flex-direction:column;align-items:center;gap:6px;width:clamp(86px,24vw,190px);padding:clamp(8px,2vw,16px) 6px;font:inherit;color:#e8ecff;
+  background:linear-gradient(#14163a,#0a0b22);border:2px solid #4a4a9a;cursor:pointer;transition:transform .12s,box-shadow .12s}
+.card i{font-style:normal;font-size:clamp(22px,6vw,44px)}
+.card b{font-size:clamp(10px,2.2vw,16px);letter-spacing:.16em}
+.card small{font-size:clamp(8px,1.6vw,12px);line-height:1.4;color:#a8b0e0}
+.card:hover,.card:active{transform:translateY(-3px);border-color:#9a9aff;box-shadow:0 0 22px #6a6aff88}
+.card.rec{border-color:#ffd23d;box-shadow:0 0 16px #ffd23d55}
+#cnote{font-size:clamp(9px,1.8vw,13px);color:#8e96c8}
+
+#pbtn{position:absolute;top:6px;right:6px;z-index:32;width:34px;height:34px;font-size:12px;color:#fff;background:#14143acc;border:1px solid #6a6aff99;border-radius:6px}
+
+/* ---------- touch controls ---------- */
+#touch{position:fixed;left:0;right:0;bottom:0;display:none;justify-content:space-between;align-items:flex-end;
+  padding:12px 16px calc(14px + env(safe-area-inset-bottom));pointer-events:none;z-index:50}
+body.ctrl-touch #touch{display:flex}
+#touch>div{display:flex;gap:12px;pointer-events:none}
+#touch button{pointer-events:auto;width:68px;height:68px;border-radius:50%;font-size:26px;color:#fff;
+  background:radial-gradient(#3a3a9acc,#14143acc);border:2px solid #8a8aff99;touch-action:none}
+#touch button:active{background:#6a6affcc;transform:scale(.93)}
+#touch button[data-k=jump]{width:80px;height:80px}
+/* ---------- v4: أزرار اللمس تتناسب مع الوضع العمودي والأفقي ---------- */
+#touch button{width:clamp(46px,14vw,68px);height:clamp(46px,14vw,68px);font-size:clamp(18px,5vw,26px)}
+#touch button[data-k=jump]{width:clamp(58px,17vw,80px);height:clamp(58px,17vw,80px);font-size:clamp(11px,3.4vw,14px)}
+#touch .vert button{width:clamp(36px,11vw,46px);height:clamp(28px,8.5vw,34px);font-size:clamp(12px,3.6vw,16px)}
+#touch>div{gap:clamp(6px,2vw,12px)}
+#touch .vert{gap:clamp(4px,1.5vw,6px)}
+
+@media (orientation:portrait){
+  body{flex-direction:column;align-items:center;justify-content:flex-start}
+  #touch{position:relative;left:auto;right:auto;bottom:auto;width:100%;flex:1;align-items:center;
+    padding:12px 14px calc(18px + env(safe-area-inset-bottom));
+    background:linear-gradient(#05060f,#0b0c24)}
+}
+@keyframes rise{from{transform:translateY(12px);opacity:0}}
+@keyframes blink{50%{opacity:0}}
+@keyframes glitch{0%,92%,100%{transform:none}93%{transform:translateX(-4px)}95%{transform:translateX(5px) skewX(6deg)}97%{transform:translateX(-2px)}}
