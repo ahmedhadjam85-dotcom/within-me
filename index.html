@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#05060f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Within Me</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="ctrl-key">
+
+<div id="stage">
+  <div id="app">
+    <canvas id="game" width="320" height="180"></canvas>
+
+    <button id="pbtn" class="hidden" aria-label="Pause">❚❚</button>
+    <button id="mbtn" class="hidden" aria-label="Map">MAP</button>
+
+    <div id="dialogue" class="hidden">
+      <canvas id="portrait" width="48" height="48"></canvas>
+      <div class="dbody"><b id="dname"></b><p id="dtext"></p></div>
+      <span id="dhint">TAP ▶</span>
+    </div>
+
+    <div id="title">
+      <h1>WITHIN ME</h1>
+      <p id="tsub">A journey into the mind...<br>The greatest battle is the one within.</p>
+      <button id="start" class="big">START</button>
+      <button id="cont" class="big ghost hidden">CONTINUE</button>
+      <div id="credit">Ahmed Hadjam</div>
+    </div>
+
+    <div id="controls" class="hidden">
+      <h2>CHOOSE YOUR CONTROLS</h2>
+      <div class="cards">
+        <button class="card" data-c="touch"><i>📱</i><b>TOUCH</b><small>Phone / Tablet<br>JUMP twice = double jump</small></button>
+        <button class="card" data-c="key"><i>⌨️</i><b>KEYBOARD</b><small>A D move · Space jump (x2)<br>J attack · K dash · W door · M map</small></button>
+        <button class="card" data-c="pad"><i>🎮</i><b>GAMEPAD</b><small>Stick move · A jump (x2)<br>X attack · B dash · ↑ door · Select map</small></button>
+      </div>
+      <p id="cnote">You can change this any time from the pause menu.</p>
+    </div>
+
+    <div id="pause" class="hidden">
+      <h2>PAUSED</h2>
+      <button id="resume" class="big">RESUME</button>
+      <button id="chg" class="big ghost">CONTROLS</button>
+      <button id="quit" class="big ghost">QUIT</button>
+    </div>
+
+    <div id="cut" class="hidden">
+      <div class="letter t"></div><div class="letter b"></div>
+      <div id="ctag"></div>
+      <div id="cbub" class="narr">
+        <b id="cwho"></b>
+        <p id="ctext"></p>
+        <p id="car" class="ar" dir="rtl"></p>
+      </div>
+      <span id="chint">TAP ▶</span>
+    </div>
+
+    <div id="splash" class="hidden">
+      <small id="sp1">A GAME BY</small>
+      <h2 id="sp2"></h2>
+      <small id="sp3">— PRESENTS —</small>
+    </div>
+
+    <div id="credits" class="hidden">
+      <div id="croll"></div>
+      <div id="cend" class="hidden">
+        <h3>THANK YOU FOR PLAYING</h3>
+        <div class="ar2">شكراً لأنك لعبت</div>
+        <h2 id="cname"></h2>
+        <p>Alexander woke up. The rest is up to you.</p>
+        <span>TAP ▶</span>
+      </div>
+    </div>
+
+    <button id="cskip" class="hidden">SKIP ▶▶</button>
+  </div>
+
+  <div id="touch">
+    <div class="pad">
+      <button data-k="left">◀</button>
+      <button data-k="right">▶</button>
+      <div class="vert">
+        <button data-k="up">▲</button>
+        <button data-k="down">▼</button>
+      </div>
+    </div>
+    <div class="act">
+      <button data-k="dash">⚡</button>
+      <button data-k="attack">⚔</button>
+      <button data-k="jump">JUMP</button>
+    </div>
+  </div>
+</div>
+
+<script src="music.js"></script>
+<script src="characters.js"></script>
+<script src="dialogue.js"></script>
+<script src="minibosses.js"></script>
+<script src="enemies.js"></script>
+<script src="game.js"></script>
+<script src="screens.js"></script>
+<script src="bosses.js"></script>
+<script src="world.js"></script>
+<script src="backdrops.js"></script>
+<script src="details.js"></script>
+</body>
+</html>
